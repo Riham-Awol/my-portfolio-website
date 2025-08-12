@@ -1,0 +1,67 @@
+/* Variables are now in index.css for global access */
+
+.app-footer {
+  background-color: var(--secondary-bg); /* Medium pink background */
+  padding: 0.5rem 0;
+
+  text-align: center;
+  color: var(--text-color); /* Deep purple text */
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow at the top */
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  margin-top: 2rem; /* Pushes footer to the bottom */
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  color: var(--logo-color); /* Darker pink for main text */
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-color); /* Bright purple heart */
+  animation: pulse 2s infinite ease-in-out; /* Subtle pulse animation */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.footer-copyright {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .app-footer {
+    padding: 1rem;
+  }
+
+  .footer-text,
+  .footer-copyright {
+    font-size: 0.85rem;
+  }
+}

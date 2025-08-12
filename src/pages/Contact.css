@@ -1,0 +1,143 @@
+/* Variables are now in index.css for global access */
+
+.contact-page {
+  /* Inherits page-card styles from index.css */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-page h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--logo-color); /* Default, overridden by gradient-text */
+}
+
+.contact-intro-text {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px; /* Limit form width */
+  margin-bottom: 2rem;
+}
+
+.form-input,
+.form-textarea {
+  padding: 1rem;
+  border: 2px solid var(--primary-bg); /* Light pink border */
+  border-radius: var(--border-radius);
+  background-color: #fff;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  outline: none; /* Remove default outline */
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-color); /* Placeholder color */
+  opacity: 0.7;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent-color); /* Bright purple on focus */
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2); /* Subtle glow */
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.submit-button {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--accent-color), var(--logo-color)); /* Gradient button */
+  color: #ffffff; /* White text for contrast */
+  padding: 1rem 2.5rem;
+  border-radius: 50px; /* Pill-shaped button */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none; /* Remove button border */
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-speed);
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, var(--logo-color), var(--accent-color)); /* Reverse gradient on hover */
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-color); /* Deep purple text */
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.8rem 1.2rem;
+  background-color: var(--primary-bg); /* Light pink background */
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color
+    var(--transition-speed), color var(--transition-speed);
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--hover-color); /* Lighter pink on hover */
+  color: var(--accent-color); /* Bright purple text on hover */
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--logo-color); /* Darker pink for icons */
+  transition: color var(--transition-speed);
+}
+
+.social-link:hover .social-icon {
+  color: var(--accent-color); /* Bright purple icon on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .social-links {
+    flex-direction: column; /* Stack social links vertically */
+    align-items: center;
+  }
+
+  .social-link {
+    width: 80%; /* Make links wider on mobile */
+    justify-content: center;
+  }
+}

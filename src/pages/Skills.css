@@ -1,0 +1,131 @@
+/* Variables are now in index.css for global access */
+
+.skills-page {
+  /* Inherits page-card styles from index.css */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.skills-page h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--logo-color); /* Default, overridden by gradient-text */
+}
+
+.skills-intro-text {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.skill-list {
+  width: 100%;
+  max-width: 600px; /* Limit width of skill bars */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Space between skill items */
+}
+
+.skill-item {
+  background-color: var(--secondary-bg); /* Medium pink background */
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  text-align: left; /* Align text left within item */
+}
+
+.skill-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.skill-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--logo-color); /* Darker pink for skill name */
+  flex-grow: 1; /* Allow name to take space */
+}
+
+.skill-level-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.progress-bar-container {
+  background-color: var(--primary-bg); /* Light pink background for empty bar */
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden; /* Ensures fill stays within bounds */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gradient-bar); /* Gradient fill */
+  border-radius: 6px;
+  width: 0; /* Start at 0 for animation */
+  animation: fillProgress 1.5s ease-out forwards; /* Animation for filling */
+  transition: width 0.5s ease-out; /* Smooth transition for dynamic width changes */
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--skill-level); /* Use CSS variable for target width */
+  }
+}
+
+/* Set custom property for each skill's fill animation */
+.skill-item:nth-child(1) .progress-bar-fill {
+  --skill-level: 95%;
+}
+.skill-item:nth-child(2) .progress-bar-fill {
+  --skill-level: 90%;
+}
+.skill-item:nth-child(3) .progress-bar-fill {
+  --skill-level: 85%;
+}
+.skill-item:nth-child(4) .progress-bar-fill {
+  --skill-level: 80%;
+}
+.skill-item:nth-child(5) .progress-bar-fill {
+  --skill-level: 70%;
+}
+.skill-item:nth-child(6) .progress-bar-fill {
+  --skill-level: 90%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .skill-item {
+    padding: 0.8rem 1rem;
+  }
+
+  .skill-name {
+    font-size: 1.1rem;
+  }
+
+  .skill-level-text {
+    font-size: 0.9rem;
+  }
+}

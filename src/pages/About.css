@@ -1,0 +1,138 @@
+/* Variables are now in index.css for global access */
+
+.about-page {
+  /* Inherits page-card styles from index.css */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about-page h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--logo-color); /* Default, overridden by gradient-text */
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Limit timeline width */
+}
+
+/* Timeline vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--primary-bg); /* Light pink line */
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse; /* Alternate sides for items */
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row;
+}
+
+.timeline-year {
+  flex-shrink: 0; /* Prevent year from shrinking */
+  width: 100px; /* Fixed width for year */
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-color); /* Bright purple for year */
+  text-align: center;
+  padding: 0.5rem;
+  background-color: var(--primary-bg); /* Light pink background for year */
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Ensure year is above the line */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.timeline-item:hover .timeline-year {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-description {
+  flex-grow: 1;
+  background-color: var(--hover-color); /* Lighter pink for description card */
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: left;
+  margin: 0 1.5rem; /* Space between year and description */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  z-index: 1;
+}
+
+.timeline-item:hover .timeline-description {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Circles on the timeline line */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent-color); /* Bright purple circle */
+  border: 3px solid var(--primary-bg); /* Light pink border */
+  z-index: 2; /* Ensure circle is on top */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 20px; /* Move line to the left */
+    transform: translateX(0);
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    flex-direction: column; /* Stack year and description vertically */
+    align-items: flex-start; /* Align items to the left */
+    margin-left: 20px; /* Indent items */
+  }
+
+  .timeline-item::after {
+    left: 20px; /* Align circle with the line */
+    transform: translateX(-50%);
+  }
+
+  .timeline-year {
+    width: auto; /* Auto width for year */
+    margin-bottom: 0.5rem; /* Space below year */
+    text-align: left;
+  }
+
+  .timeline-description {
+    margin: 0; /* Remove horizontal margin */
+    width: calc(100% - 20px); /* Adjust width */
+  }
+}

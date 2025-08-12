@@ -1,0 +1,47 @@
+.sparkle-container {
+  position: relative;
+  display: inline-block; /* Allows wrapping text/inline elements */
+  z-index: 1; /* Ensure sparkles are above background but below content */
+}
+
+.sparkle {
+  position: absolute;
+  background-color: var(--accent-color); /* Bright purple/pink */
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none; /* Don't interfere with clicks */
+  animation: sparkle-fade-move linear infinite;
+}
+
+@keyframes sparkle-fade-move {
+  0% {
+    opacity: 0;
+    transform: scale(0) translate(0, 0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+  80% {
+    opacity: 0.5;
+    transform: scale(0.8) translate(var(--sparkle-move-x, 10px), var(--sparkle-move-y, -10px));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translate(var(--sparkle-move-x, 20px), var(--sparkle-move-y, -20px));
+  }
+}
+
+/* Randomize sparkle movement slightly */
+.sparkle:nth-child(3n) {
+  --sparkle-move-x: -15px;
+  --sparkle-move-y: 5px;
+}
+.sparkle:nth-child(5n) {
+  --sparkle-move-x: 5px;
+  --sparkle-move-y: 15px;
+}
+.sparkle:nth-child(7n) {
+  --sparkle-move-x: -5px;
+  --sparkle-move-y: -15px;
+}

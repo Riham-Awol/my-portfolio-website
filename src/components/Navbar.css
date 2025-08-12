@@ -1,0 +1,150 @@
+/* Variables for the "easy touch and girly" theme */
+:root {
+  --primary-bg: #fce4ec; /* Light Pink */
+  --secondary-bg: #f8bbd0; /* Medium Pink */
+  --text-color: #4a148c; /* Deep Purple */
+  --accent-color: #e040fb; /* Bright Purple/Pink */
+  --logo-color: #880e4f; /* Darker Pink/Maroon */
+  --hover-color: #ffc1e3; /* Lighter Pink for hover */
+  --border-radius: 12px;
+  --transition-speed: 0.3s ease;
+}
+
+/* General Navbar Styling */
+.navbar {
+  background-color: var(--primary-bg);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* A soft, readable font */
+  position: relative; /* For mobile menu positioning */
+  z-index: 1000;
+}
+
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Occupy full width on mobile */
+}
+
+/* Logo Styling */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--logo-color);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color var(--transition-speed);
+}
+
+.logo:hover {
+  color: var(--text-color);
+}
+
+/* Navigation Links Styling (Desktop) */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  /* Assuming 'active' class for current route from react-router-dom */
+  background-color: var(--secondary-bg);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  transition: color var(--transition-speed);
+}
+
+.menu-toggle:hover {
+  color: var(--accent-color);
+}
+
+.menu-toggle .icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--primary-bg);
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%); /* Start hidden above */
+    opacity: 0;
+    pointer-events: none; /* Disable interactions when hidden */
+    transition: transform var(--transition-speed), opacity var(--transition-speed);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  .nav-links.open {
+    transform: translateY(0); /* Slide down when open */
+    opacity: 1;
+    pointer-events: auto; /* Enable interactions when open */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 0.8rem 1rem;
+    margin: 0.2rem 1rem; /* Add some horizontal margin */
+  }
+}

@@ -1,0 +1,76 @@
+/* Variables are now in index.css for global access */
+
+.projects-page {
+  /* Inherits page-card styles from index.css */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* Space between title and grid */
+}
+
+.projects-page h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--logo-color); /* Default, overridden by gradient-text */
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 1.5rem; /* Space between cards */
+  width: 100%;
+  max-width: 900px; /* Max width for the grid */
+}
+
+.project-card {
+  background-color: var(--secondary-bg); /* Medium pink background */
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Align text left within card */
+  text-decoration: none; /* Remove underline from link */
+  color: var(--text-color); /* Inherit text color */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push link to bottom */
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color
+    var(--transition-speed);
+}
+
+.project-card:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: var(--hover-color); /* Lighter pink on hover */
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--logo-color); /* Darker pink for title */
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and title */
+}
+
+.project-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem; /* Space before link */
+  flex-grow: 1; /* Allow description to take space */
+}
+
+.project-link-text {
+  display: inline-block;
+  color: var(--accent-color); /* Bright purple for link */
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.project-card:hover .project-link-text {
+  color: var(--text-color); /* Deep purple on hover */
+  transform: translateX(5px); /* Slight movement on hover */
+}
